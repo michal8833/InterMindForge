@@ -5,11 +5,28 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
     expose:
-      - "3306"
+      - 3306
     ports:
-      - "3306:3306"
+      - 3306:3306
+    networks:
+      - main
     restart: always
 
   course-service:
     build: ./course-service
     image: course-service
+    environment:
+      DB_HOST: course-db
+      DB_PORT: 3306
+      DB_SCHEMA_NAME: course_service
+      DB_USERNAME: root
+      DB_PASSWORD: password
+    networks:
+      - main
+    depends_on:
+      - course-db
+
+networks:
+  main:
+    driver: bridge
+    name: main
