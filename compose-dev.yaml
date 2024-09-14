@@ -5,6 +5,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_TCP_PORT: 3306
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
     networks:
       - main
     restart: always
@@ -19,6 +23,10 @@ services:
       DB_SCHEMA_NAME: course_service
       DB_USERNAME: root
       DB_PASSWORD: password
+    expose:
+      - 8081
+    ports:
+      - 8081:8081
     networks:
       - main
     depends_on:

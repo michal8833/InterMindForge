@@ -20,4 +20,9 @@ public class Quiz {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_quiz_id", referencedColumnName = "id")
     private List<QuizQuestion> questions;
+    /*
+    TODO:
+     private User author;
+     private List<User> participants;
+    */
 }

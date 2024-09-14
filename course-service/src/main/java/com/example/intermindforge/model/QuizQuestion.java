@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class QuizQuestion {
+public class QuizQuestion { // TODO: subclass for every question type
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
